@@ -1,14 +1,14 @@
 package com.ofpay.edge.util;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.File;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * ClassLoaderUtil.java
@@ -28,7 +28,7 @@ public final class ClassLoaderUtil {
 
     private static URLClassLoader system = (URLClassLoader) ClassLoader.getSystemClassLoader();
 
-    private static Logger logger = LoggerFactory.getLogger(ClassLoaderUtil.class);
+    private static Logger logger = LogManager.getLogger(ClassLoaderUtil.class);
 
     /** 初始化方法 */
     private static final Method initAddMethod() {

@@ -3,23 +3,22 @@
  */
 package com.ofpay.edge.controller;
 
-import java.lang.reflect.Method;
-import java.util.*;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.alibaba.dubbo.common.URL;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.ofpay.edge.InterfaceExecutor;
 import com.ofpay.edge.InterfaceLoader;
 import com.ofpay.edge.bean.JSONTreeNode;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.lang.reflect.Method;
+import java.util.*;
 
 /**
  * <p>
@@ -33,7 +32,7 @@ import com.ofpay.edge.bean.JSONTreeNode;
 @Controller
 @RequestMapping(value = "/", produces = "text/plain;charset=UTF-8")
 public class APITestController {
-    private static final Logger logger = LoggerFactory.getLogger(APITestController.class);
+    private static final Logger logger = LogManager.getLogger(APITestController.class);
 
     private static final String FOLDER_SPLIT = "/";
 

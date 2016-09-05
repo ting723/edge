@@ -3,21 +3,19 @@
  */
 package com.ofpay.edge;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.parser.ParserConfig;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson.util.TypeUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.lang.reflect.Method;
 
-import com.alibaba.fastjson.parser.ParserConfig;
-import com.alibaba.fastjson.util.TypeUtils;
-import org.apache.commons.beanutils.ConvertUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.serializer.SerializerFeature;
 
 /**
  * <p>
@@ -29,7 +27,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
  * @since 1.0
  */
 public class InterfaceExecutor {
-    private static Logger log = LoggerFactory.getLogger(InterfaceExecutor.class);
+    private static Logger log = LogManager.getLogger(InterfaceExecutor.class);
 
     /**
      * 接口执行方法

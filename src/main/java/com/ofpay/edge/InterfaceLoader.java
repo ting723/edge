@@ -3,16 +3,6 @@
  */
 package com.ofpay.edge;
 
-import java.lang.reflect.Method;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.util.StringUtils;
-
 import com.alibaba.dubbo.common.Constants;
 import com.alibaba.dubbo.common.URL;
 import com.alibaba.dubbo.config.ApplicationConfig;
@@ -21,6 +11,15 @@ import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.ofpay.edge.listener.NotifyMe;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.util.StringUtils;
+
+import java.lang.reflect.Method;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 /**
  * <p>
@@ -39,7 +38,7 @@ public class InterfaceLoader {
 
     private static ApplicationConfig application = null;
 
-    private static Logger logger = LoggerFactory.getLogger(InterfaceLoader.class);
+    private static Logger logger = LogManager.getLogger(InterfaceLoader.class);
 
     public static void init(RegistryConfig registry, ApplicationConfig application) {
         InterfaceLoader.registry = registry;

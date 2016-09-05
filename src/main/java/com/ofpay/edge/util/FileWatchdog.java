@@ -3,13 +3,13 @@
  */
 package com.ofpay.edge.util;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.util.StringUtils;
+
 import java.io.File;
 import java.util.*;
 import java.util.regex.Pattern;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.util.StringUtils;
 
 /**
  * <p>
@@ -24,7 +24,7 @@ public abstract class FileWatchdog extends Thread {
 
     public static final long DEFAULT_DELAY = 60000;
 
-    private static final Logger logger = LoggerFactory.getLogger(FileWatchdog.class);
+    private static final Logger logger = LogManager.getLogger(FileWatchdog.class);
 
     private static final String DEFAULT_FILTER_PARTTEN = ".*.(jar|zip)";
 

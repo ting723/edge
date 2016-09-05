@@ -14,7 +14,7 @@
         <fastjson.version>1.1.37</fastjson.version>
         <com.thoughtworks.xstream.version>1.4.2</com.thoughtworks.xstream.version>
         <commons-beanutils.version>1.8.3</commons-beanutils.version>
-        <org.springframework.version>3.1.1.RELEASE</org.springframework.version>
+        <org.springframework.version>4.2.3.RELEASE</org.springframework.version>
         <logback.version>1.0.12</logback.version>
         <servlet.version>2.5</servlet.version>
         <slf4j.version>1.7.5</slf4j.version>
@@ -33,6 +33,12 @@
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
             <version>${commons-beanutils.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -49,6 +55,23 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${org.springframework.version}</version>
         </dependency>
+         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.6.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.6.2</version>
+        </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
@@ -64,6 +87,12 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -74,7 +103,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version><!--$NO-MVN-MAN-VER$ -->
+            <version>${fastjson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -102,18 +131,12 @@
             <artifactId>zkclient</artifactId>
             <version>0.3</version>
             <scope>runtime</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
-    <distributionManagement>
-        <repository>
-            <id>edge-releases</id>
-            <name>releases</name>
-            <url>https://repository-joecao.forge.cloudbees.com/release/</url>
-        </repository>
-        <snapshotRepository>
-            <id>edge-snapshots</id>
-            <name>snapshots</name>
-            <url>https://repository-joecao.forge.cloudbees.com/snapshot/ </url>
-        </snapshotRepository>
-    </distributionManagement>
 </project>
